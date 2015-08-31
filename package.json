@@ -1,0 +1,26 @@
+{
+  "name": "songdown-packager",
+  "version": "0.1.0",
+  "description": "The Songdown component which takes all the source files and puts them into a single file for use by the app component.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/1vasari/songdown-packager"
+  },
+  "author": "Nathan McCallum <onevasari@gmail.com> (https://github.com/1Vasari)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/1vasari/songdown-packager/issues"
+  },
+  "homepage": "https://github.com/1vasari/songdown-packager",
+  "dependencies": {
+    "deep-equal": "1.0.1",
+    "glob": "5.0.14",
+    "gray-matter": "2.0.1",
+    "lodash": "3.10.0",
+    "normalize-newline": "1.0.2"
+  }
+}

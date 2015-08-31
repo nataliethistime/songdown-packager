@@ -1,0 +1,10 @@
+{
+  "Foo": {
+    "Bar": {
+      "artist": "Foo",
+      "name": "Bar",
+      "source": "\ntest\n",
+      "spam": "eggs"
+    }
+  }
+}
