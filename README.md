@@ -7,5 +7,8 @@ The Songdown component which takes all the source files and puts them into a sin
 
 # Changes
 
-### 0.1.0 (2015-08-31)
+### 0.2.0 (2015-08-31)
 - Initial version.
+
+### 0.1.0 (2015-08-31)
+- Started project.
