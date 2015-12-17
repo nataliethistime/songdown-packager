@@ -1,52 +1,46 @@
-'use strict';
+'use strict'
 
-var _ = require('lodash');
-var glob = require('glob');
-var normalizeNewline = require('normalize-newline');
-var gray = require('gray-matter');
+let _ = require('lodash')
+let glob = require('glob')
+let normalizeNewline = require('normalize-newline')
+let gray = require('gray-matter')
 
-var path = require('path');
-var fs = require('fs');
+let path = require('path')
+let fs = require('fs')
 
-var GRAY_MATTER_CONFIG = {
+const GRAY_MATTER_CONFIG = {
   delims: ['===', '===']
-};
+}
 
-var run = function(sourceDir, destinationDir) {
+module.exports.run = (sourceDir, destinationDir) => {
+  let files = glob.sync('*.songdown', {cwd: sourceDir})
+  let output = {}
 
-  var files = glob.sync('*.songdown', {cwd: sourceDir});
-  var output = {};
+  _.each(files, (file) => {
+    let splitName = file.split(' - ')
+    let artist = splitName.shift()
+    let name = splitName.join(' ').replace(/\.songdown$/, '')
 
-  _.each(files, function(file) {
-    var splitName = file.split(' - ');
-    var artist = splitName.shift();
-    var name = splitName.join(' ').replace(/\.songdown$/, '');
+    let location = path.join(sourceDir, file)
+    let source = normalizeNewline(fs.readFileSync(location).toString())
 
-    var location = path.join(sourceDir, file);
-    var source = normalizeNewline(fs.readFileSync(location).toString());
+    let matter = gray(source, GRAY_MATTER_CONFIG)
 
-    var matter = gray(source, GRAY_MATTER_CONFIG);
-
-    // Remove front matter from the source so it doesn't appear to the user.
-    source = matter.content;
-
-    var obj = {
-      artist: artist,
-      name: name,
-      source: source
-    };
-
-    _.merge(obj, matter.data);
-
-    if (!output[artist]) {
-      output[artist] = {};
+    let obj = {
+      artist,
+      name,
+      source: matter.content
     }
 
-    output[artist][name] = obj;
-  });
+    _.merge(obj, matter.data)
 
-  fs.writeFileSync(path.join(destinationDir, 'songs.json'), JSON.stringify(output, null, 2));
-  return output;
-};
+    if (!output[artist]) {
+      output[artist] = {}
+    }
 
-module.exports.run = run;
+    output[artist][name] = obj
+  })
+
+  fs.writeFileSync(path.join(destinationDir, 'songs.json'), JSON.stringify(output, null, 2))
+  return output
+}

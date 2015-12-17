@@ -4,7 +4,7 @@
   "description": "The Songdown component which takes all the source files and puts them into a single file for use by the app component.",
   "main": "index.js",
   "scripts": {
-    "test": "node test/test.js"
+    "test": "mocha && snazzy"
   },
   "repository": {
     "type": "git",
@@ -17,10 +17,16 @@
   },
   "homepage": "https://github.com/1vasari/songdown-packager",
   "dependencies": {
-    "deep-equal": "1.0.1",
     "glob": "6.0.1",
     "gray-matter": "2.0.2",
     "lodash": "3.10.1",
     "normalize-newline": "1.0.2"
+  },
+  "devDependencies": {
+    "chai": "3.4.1",
+    "deep-equal": "1.0.1",
+    "mocha": "2.3.4",
+    "snazzy": "2.0.1",
+    "standard": "5.4.1"
   }
 }

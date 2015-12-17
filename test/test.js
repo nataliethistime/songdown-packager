@@ -1,31 +1,32 @@
-'use strict';
+'use strict'
 
-var path = require('path');
+/* global describe */
+/* global it */
 
-var packager = require('./../index');
+let path = require('path')
 
-var deepEqual = require('deep-equal');
+let packager = require('./../index')
 
-var source = path.join(__dirname, 'test-songs');
-var destination = __dirname;
+let expect = require('chai').expect
+let deepEqual = require('deep-equal')
 
-var EXPECTATION = {
-  "Foo": {
-    "Bar": {
-      "artist": "Foo",
-      "name": "Bar",
-      "source": "\ntest\n",
-      "spam": "eggs"
+let source = path.join(__dirname, 'test-songs')
+let destination = __dirname
+
+const EXPECTATION = {
+  'Foo': {
+    'Bar': {
+      'artist': 'Foo',
+      'name': 'Bar',
+      'source': '\ntest\n',
+      'spam': 'eggs'
     }
   }
-};
-
-var result = packager.run(source, destination);
-
-if (deepEqual(EXPECTATION, result)) {
-  console.log('All good!');
-  process.exit(0);
-} else {
-  console.error('Error!');
-  process.exit(1);
 }
+
+describe('packager', () => {
+  it('should output correctly', () => {
+    let result = packager.run(source, destination)
+    expect(deepEqual(EXPECTATION, result)).to.equal(true)
+  })
+})
