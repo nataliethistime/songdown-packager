@@ -10,7 +10,7 @@ let packager = require('./../index')
 let expect = require('chai').expect
 let deepEqual = require('deep-equal')
 
-let source = path.join(__dirname, 'test-songs')
+let source = path.join(__dirname, 'fixture')
 let destination = __dirname
 
 const EXPECTATION = {
