@@ -1,6 +1,6 @@
 {
   "name": "songdown-packager",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "The Songdown component which takes all the source files and puts them into a single file for use by the app component.",
   "main": "index.js",
   "scripts": {
