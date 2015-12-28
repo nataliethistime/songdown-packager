@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/1vasari/songdown-packager",
   "dependencies": {
-    "glob": "6.0.1",
+    "glob": "6.0.2",
     "gray-matter": "2.0.2",
     "lodash": "3.10.1",
     "normalize-newline": "2.0.0"
