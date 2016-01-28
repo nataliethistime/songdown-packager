@@ -23,7 +23,7 @@
     "normalize-newline": "2.0.0"
   },
   "devDependencies": {
-    "chai": "3.4.1",
+    "chai": "3.5.0",
     "deep-equal": "1.0.1",
     "mocha": "2.4.3",
     "snazzy": "2.0.1",
