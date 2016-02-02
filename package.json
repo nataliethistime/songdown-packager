@@ -19,7 +19,7 @@
   "dependencies": {
     "glob": "6.0.4",
     "gray-matter": "2.0.2",
-    "lodash": "4.1.0",
+    "lodash": "4.2.0",
     "normalize-newline": "2.0.0"
   },
   "devDependencies": {
