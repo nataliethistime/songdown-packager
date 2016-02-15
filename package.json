@@ -26,7 +26,7 @@
     "chai": "3.5.0",
     "deep-equal": "1.0.1",
     "mocha": "2.4.5",
-    "snazzy": "2.0.1",
+    "snazzy": "3.0.0",
     "standard": "5.4.1"
   }
 }
